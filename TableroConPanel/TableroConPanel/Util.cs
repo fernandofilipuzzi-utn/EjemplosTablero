@@ -7,13 +7,39 @@ namespace TableroConPanel
 {
     class Util
     {
-        static public int columnas = 5;
-        static public int renglones = 3;
+        static public int Columnas { get; set; } = 5;
+        static public int Renglones { get; set; } = 3;
 
-        static public void cellToxy(int cel, ref int x, ref int y)
+        /// <summary>
+        /// conversión de celdas a filas y columnas
+        /// </summary>
+        /// <param name="cel"></param>
+        /// <param name="fila"></param>
+        /// <param name="columna"></param>
+        static public void CellToFilaColumna(int cel, ref int fila, ref int columna)
         {
-            x = (cel - 1) % columnas;
-            y = (cel - 1) / columnas;
+            fila = (cel - 1) / Columnas;
+            columna = (cel - 1) % Columnas;
+        }
+
+        static public int FilaColumnaToCell(int fila, int columna)
+        {
+            return fila* Columnas + columna;
+        }
+
+        /// <summary>
+        /// conversión de filas,columnas a y,x en pixeles
+        /// </summary>
+        /// <param name="fila"></param>
+        /// <param name="columna"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="ancho"></param>
+        /// <param name="alto"></param>
+        static public void FilaColumnaToXY(int fila, int columna,ref int x, ref int y, int ancho, int alto)
+        {
+            x = ancho * columna;
+            y = alto * fila;
         }
     }
 }

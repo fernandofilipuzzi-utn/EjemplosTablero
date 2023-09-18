@@ -19,28 +19,36 @@ namespace TableroConPanel
         private void Form1_Load(object sender, EventArgs e)
         {
         }
+            
 
-        
-
-        void dibujar(int cel)
+        private void nudNumeroCelda_ValueChanged(object sender, EventArgs e)
         {
-            int Aw = panel1.Width / Util.columnas;
-            int Ah = panel1.Width / Util.renglones;
-
-            int x = 0, y = 0;
-            Util.cellToxy(cel, ref x, ref y);
-
-            escalera.Top = Aw * y;
-            escalera.Left = Aw * x;
+            int cel = Convert.ToInt32(nudNumeroCelda.Value);
+            Dibujar(cel);
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void PictureBoxEscalera_Click(object sender, EventArgs e)
         {
-            int cel = Convert.ToInt32(numericUpDown1.Value);
-            dibujar(cel);
+            int cel = Convert.ToInt32(nudNumeroCelda.Value);
+            int fila=0;
+            int columna=0;
+            Util.CellToFilaColumna(cel, ref fila, ref columna);
+
+            toolTip1.Show($"celda:{cel} - {{fila,columna}}:{{ {fila},{columna}}}; ", PictureBoxEscalera, 5000);
         }
 
-        
+        //
 
+        void Dibujar(int cel)
+        {
+            int Aw = pnlTablero.Width / Util.Columnas;
+            int Ah = pnlTablero.Width / Util.Renglones;
+
+            int columna = 0, fila = 0;
+            Util.CellToFilaColumna(cel, ref fila, ref columna);
+
+            PictureBoxEscalera.Top = Aw * fila;
+            PictureBoxEscalera.Left = Aw * columna;
+        }
     }
 }
