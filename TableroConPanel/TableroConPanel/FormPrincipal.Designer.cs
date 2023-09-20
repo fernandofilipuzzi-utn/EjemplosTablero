@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlTablero = new System.Windows.Forms.Panel();
-            this.PictureBoxEscalera = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEscalera = new System.Windows.Forms.PictureBox();
             this.nudNumeroCelda = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEscalera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEscalera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumeroCelda)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,17 +44,18 @@
             this.pnlTablero.Name = "pnlTablero";
             this.pnlTablero.Size = new System.Drawing.Size(494, 316);
             this.pnlTablero.TabIndex = 0;
+            this.pnlTablero.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTablero_Paint);
             // 
-            // PictureBoxEscalera
+            // pictureBoxEscalera
             // 
-            this.PictureBoxEscalera.Image = global::TableroConPanel.Properties.Resources.images;
-            this.PictureBoxEscalera.Location = new System.Drawing.Point(552, 212);
-            this.PictureBoxEscalera.Name = "PictureBoxEscalera";
-            this.PictureBoxEscalera.Size = new System.Drawing.Size(59, 52);
-            this.PictureBoxEscalera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBoxEscalera.TabIndex = 1;
-            this.PictureBoxEscalera.TabStop = false;
-            this.PictureBoxEscalera.Click += new System.EventHandler(this.PictureBoxEscalera_Click);
+            this.pictureBoxEscalera.Image = global::TableroConPanel.Properties.Resources.images;
+            this.pictureBoxEscalera.Location = new System.Drawing.Point(552, 212);
+            this.pictureBoxEscalera.Name = "pictureBoxEscalera";
+            this.pictureBoxEscalera.Size = new System.Drawing.Size(59, 52);
+            this.pictureBoxEscalera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxEscalera.TabIndex = 1;
+            this.pictureBoxEscalera.TabStop = false;
+            this.pictureBoxEscalera.Click += new System.EventHandler(this.PictureBoxEscalera_Click);
             // 
             // nudNumeroCelda
             // 
@@ -95,12 +96,12 @@
             this.ClientSize = new System.Drawing.Size(650, 369);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudNumeroCelda);
-            this.Controls.Add(this.PictureBoxEscalera);
+            this.Controls.Add(this.pictureBoxEscalera);
             this.Controls.Add(this.pnlTablero);
             this.Name = "FormPrincipal";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEscalera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEscalera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumeroCelda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -110,7 +111,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlTablero;
-        private System.Windows.Forms.PictureBox PictureBoxEscalera;
+        private System.Windows.Forms.PictureBox pictureBoxEscalera;
         private System.Windows.Forms.NumericUpDown nudNumeroCelda;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolTip toolTip1;
