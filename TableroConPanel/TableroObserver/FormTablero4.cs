@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace TableroObserver
 {
-    public partial class FormMaperDraw : Form, IObservador
+    public partial class FormTablero4 : Form, IObservador
     {
         private MaperDraw md;
 
 
-        public FormMaperDraw(int Widtht, int Heightt)
+        public FormTablero4(int Widtht, int Heightt)
         {
             InitializeComponent();
             md = new MaperDraw(this, Width, Height, Widtht, Heightt);

@@ -1,6 +1,6 @@
 ﻿namespace TableroObserver
 {
-    partial class FormMaperDraw
+    partial class FormTablero4
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -30,15 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // FormMaperDraw
+            // FormTablero4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(656, 593);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FormMaperDraw";
-            this.Text = "FormMaperDraw";
+            this.Name = "FormTablero4";
+            this.Text = "Tablero 4";
             this.Load += new System.EventHandler(this.FormMaperDraw_Load);
             this.ResumeLayout(false);
 

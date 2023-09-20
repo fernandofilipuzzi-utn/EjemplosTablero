@@ -28,76 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnCrearJuego = new System.Windows.Forms.Button();
+            this.btnAgregarPersonaje = new System.Windows.Forms.Button();
+            this.btnJugar = new System.Windows.Forms.Button();
+            this.dgvTablero1 = new System.Windows.Forms.DataGridView();
+            this.lbxTablero3 = new System.Windows.Forms.ListBox();
             this.tbNombreJugador = new System.Windows.Forms.TextBox();
             this.cbTipoJugador = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbInicioJuego = new System.Windows.Forms.GroupBox();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbAgregarPersonaje = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbJugar = new System.Windows.Forms.GroupBox();
+            this.pnlTablero2 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTablero1)).BeginInit();
+            this.gbInicioJuego.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbAgregarPersonaje.SuspendLayout();
+            this.gbJugar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnCrearJuego
             // 
-            this.button1.Location = new System.Drawing.Point(276, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Crear el juego";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCrearJuego.Location = new System.Drawing.Point(197, 23);
+            this.btnCrearJuego.Name = "btnCrearJuego";
+            this.btnCrearJuego.Size = new System.Drawing.Size(190, 23);
+            this.btnCrearJuego.TabIndex = 0;
+            this.btnCrearJuego.Text = "Crear el juego";
+            this.btnCrearJuego.UseVisualStyleBackColor = true;
+            this.btnCrearJuego.Click += new System.EventHandler(this.btnCrearJuego_Click);
             // 
-            // button2
+            // btnAgregarPersonaje
             // 
-            this.button2.Location = new System.Drawing.Point(312, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Agregar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAgregarPersonaje.Location = new System.Drawing.Point(197, 35);
+            this.btnAgregarPersonaje.Name = "btnAgregarPersonaje";
+            this.btnAgregarPersonaje.Size = new System.Drawing.Size(190, 23);
+            this.btnAgregarPersonaje.TabIndex = 1;
+            this.btnAgregarPersonaje.Text = "Agregar Personaje";
+            this.btnAgregarPersonaje.UseVisualStyleBackColor = true;
+            this.btnAgregarPersonaje.Click += new System.EventHandler(this.btnAgregarPersonaje_Click);
             // 
-            // button3
+            // btnJugar
             // 
-            this.button3.Location = new System.Drawing.Point(297, 31);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Jugar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnJugar.Location = new System.Drawing.Point(197, 31);
+            this.btnJugar.Name = "btnJugar";
+            this.btnJugar.Size = new System.Drawing.Size(190, 23);
+            this.btnJugar.TabIndex = 2;
+            this.btnJugar.Text = "Jugar";
+            this.btnJugar.UseVisualStyleBackColor = true;
+            this.btnJugar.Click += new System.EventHandler(this.btnJugar_Click);
             // 
-            // dataGridView1
+            // dgvTablero1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(396, 221);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvTablero1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTablero1.Location = new System.Drawing.Point(12, 22);
+            this.dgvTablero1.Name = "dgvTablero1";
+            this.dgvTablero1.Size = new System.Drawing.Size(396, 221);
+            this.dgvTablero1.TabIndex = 3;
             // 
-            // listBox1
+            // lbxTablero3
             // 
-            this.listBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(405, 249);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(396, 256);
-            this.listBox1.TabIndex = 4;
+            this.lbxTablero3.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxTablero3.FormattingEnabled = true;
+            this.lbxTablero3.ItemHeight = 18;
+            this.lbxTablero3.Location = new System.Drawing.Point(420, 249);
+            this.lbxTablero3.Name = "lbxTablero3";
+            this.lbxTablero3.Size = new System.Drawing.Size(391, 256);
+            this.lbxTablero3.TabIndex = 4;
             // 
             // tbNombreJugador
             // 
@@ -117,17 +116,17 @@
             this.cbTipoJugador.Size = new System.Drawing.Size(65, 21);
             this.cbTipoJugador.TabIndex = 6;
             // 
-            // groupBox1
+            // gbInicioJuego
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(414, 22);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(396, 64);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Inicio del juego";
+            this.gbInicioJuego.Controls.Add(this.numericUpDown2);
+            this.gbInicioJuego.Controls.Add(this.numericUpDown1);
+            this.gbInicioJuego.Controls.Add(this.btnCrearJuego);
+            this.gbInicioJuego.Location = new System.Drawing.Point(414, 22);
+            this.gbInicioJuego.Name = "gbInicioJuego";
+            this.gbInicioJuego.Size = new System.Drawing.Size(396, 64);
+            this.gbInicioJuego.TabIndex = 7;
+            this.gbInicioJuego.TabStop = false;
+            this.gbInicioJuego.Text = "Inicio del juego";
             // 
             // numericUpDown2
             // 
@@ -173,18 +172,18 @@
             0,
             0});
             // 
-            // groupBox2
+            // gbAgregarPersonaje
             // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.tbNombreJugador);
-            this.groupBox2.Controls.Add(this.cbTipoJugador);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(414, 92);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(396, 68);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Agregar Jugador";
+            this.gbAgregarPersonaje.Controls.Add(this.label1);
+            this.gbAgregarPersonaje.Controls.Add(this.tbNombreJugador);
+            this.gbAgregarPersonaje.Controls.Add(this.cbTipoJugador);
+            this.gbAgregarPersonaje.Controls.Add(this.btnAgregarPersonaje);
+            this.gbAgregarPersonaje.Location = new System.Drawing.Point(414, 92);
+            this.gbAgregarPersonaje.Name = "gbAgregarPersonaje";
+            this.gbAgregarPersonaje.Size = new System.Drawing.Size(396, 68);
+            this.gbAgregarPersonaje.TabIndex = 8;
+            this.gbAgregarPersonaje.TabStop = false;
+            this.gbAgregarPersonaje.Text = "Agregar Personaje";
             // 
             // label1
             // 
@@ -195,78 +194,66 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Nombre";
             // 
-            // groupBox3
+            // gbJugar
             // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Location = new System.Drawing.Point(414, 166);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(387, 60);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Jugar";
+            this.gbJugar.Controls.Add(this.btnJugar);
+            this.gbJugar.Location = new System.Drawing.Point(414, 166);
+            this.gbJugar.Name = "gbJugar";
+            this.gbJugar.Size = new System.Drawing.Size(396, 60);
+            this.gbJugar.TabIndex = 9;
+            this.gbJugar.TabStop = false;
+            this.gbJugar.Text = "Jugar";
             // 
-            // panel1
+            // pnlTablero2
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Location = new System.Drawing.Point(12, 249);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(396, 263);
-            this.panel1.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(607, 332);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "label2";
+            this.pnlTablero2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnlTablero2.Location = new System.Drawing.Point(12, 249);
+            this.pnlTablero2.Name = "pnlTablero2";
+            this.pnlTablero2.Size = new System.Drawing.Size(396, 263);
+            this.pnlTablero2.TabIndex = 10;
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 520);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(817, 520);
+            this.Controls.Add(this.pnlTablero2);
+            this.Controls.Add(this.gbJugar);
+            this.Controls.Add(this.gbAgregarPersonaje);
+            this.Controls.Add(this.gbInicioJuego);
+            this.Controls.Add(this.lbxTablero3);
+            this.Controls.Add(this.dgvTablero1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormPrincipal";
             this.Text = "Prueba patrón observer en multiples vistas";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTablero1)).EndInit();
+            this.gbInicioJuego.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.gbAgregarPersonaje.ResumeLayout(false);
+            this.gbAgregarPersonaje.PerformLayout();
+            this.gbJugar.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnCrearJuego;
+        private System.Windows.Forms.Button btnAgregarPersonaje;
+        private System.Windows.Forms.Button btnJugar;
+        private System.Windows.Forms.DataGridView dgvTablero1;
+        private System.Windows.Forms.ListBox lbxTablero3;
         private System.Windows.Forms.TextBox tbNombreJugador;
         private System.Windows.Forms.ComboBox cbTipoJugador;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbInicioJuego;
+        private System.Windows.Forms.GroupBox gbAgregarPersonaje;
+        private System.Windows.Forms.GroupBox gbJugar;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlTablero2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }
 

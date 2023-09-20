@@ -13,15 +13,22 @@ namespace TableroObserver
     {
         EscaleraSerpientes pg;
         Maper maperHelper;
-        FormMaperDraw fmd;
+        FormTablero4 fmd;
 
         public FormPrincipal()
         {
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            gbInicioJuego.Enabled = true;
+            gbAgregarPersonaje.Enabled = false;
+            gbJugar.Enabled = false;
+        }
+
         /*primero caso de uso*/
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCrearJuego_Click(object sender, EventArgs e)
         {
             //entrada de datos
             int ancho = 5;
@@ -29,35 +36,35 @@ namespace TableroObserver
 
             //inicialización del tablero.
             //
-            dataGridView1.RowCount = alto;
-            dataGridView1.RowHeadersVisible = false;
+            dgvTablero1.RowCount = alto;
+            dgvTablero1.RowHeadersVisible = false;
 
-            int height = dataGridView1.ClientSize.Height - dataGridView1.Margin.Bottom ;
-            foreach(DataGridViewRow rv in dataGridView1.Rows)
+            int height = dgvTablero1.ClientSize.Height - dgvTablero1.Margin.Bottom ;
+            foreach(DataGridViewRow rv in dgvTablero1.Rows)
             {
                 rv.Height =height/alto;
             }
             
-            dataGridView1.ColumnCount = alto;
-            dataGridView1.ColumnHeadersVisible = false;
+            dgvTablero1.ColumnCount = alto;
+            dgvTablero1.ColumnHeadersVisible = false;
 
-            int width = dataGridView1.ClientSize.Width - dataGridView1.Margin.Right;
-            foreach (DataGridViewColumn cv in dataGridView1.Columns)
+            int width = dgvTablero1.ClientSize.Width - dgvTablero1.Margin.Right;
+            foreach (DataGridViewColumn cv in dgvTablero1.Columns)
             {
                 cv.Width = width / ancho;
             }
 
             //limpieza del tablero juego anterior.
-            for (int i = 0; i < dataGridView1.RowCount; i++)
+            for (int i = 0; i < dgvTablero1.RowCount; i++)
             {
-                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                for (int j = 0; j < dgvTablero1.ColumnCount; j++)
                 {
-                    dataGridView1[i, j].Value = "";
+                    dgvTablero1[i, j].Value = "";
                 }
             }
 
             //
-            listBox1.Items.Clear();
+            lbxTablero3.Items.Clear();
 
             //
             cbTipoJugador.Items.Clear();
@@ -68,25 +75,22 @@ namespace TableroObserver
             //
             pg = new EscaleraSerpientes(ancho,alto);
 
-
-            groupBox1.Enabled = false;
-            groupBox2.Enabled = true;
-            groupBox3.Enabled = false;
-
-            ///
-
-            maperHelper = new Maper(panel1, panel1.Width, panel1.Height,
-                                            pg.Ancho, pg.Alto);
+            gbInicioJuego.Enabled = false;
+            gbAgregarPersonaje.Enabled = true;
+            gbJugar.Enabled = false;
 
             //
-            fmd = new FormMaperDraw(pg.Ancho, pg.Alto);
+            maperHelper = new Maper(pnlTablero2, pnlTablero2.Width, pnlTablero2.Height, pg.Ancho, pg.Alto);
+
+            //
+            fmd = new FormTablero4(pg.Ancho, pg.Alto);
             fmd.BackColor = Color.Gray;
             fmd.Show();
         }
 
 
         /*segundo caso de uso*/
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAgregarPersonaje_Click(object sender, EventArgs e)
         {
             //captura de datos de la pantalla.
             string nombre = tbNombreJugador.Text;
@@ -109,7 +113,7 @@ namespace TableroObserver
 
                 //Imprimir(gg);
 
-                groupBox3.Enabled = true;
+                gbJugar.Enabled = true;
                 tbNombreJugador.Text = "";
                 cbTipoJugador.SelectedIndex = -1;
             }
@@ -121,10 +125,10 @@ namespace TableroObserver
 
 
         /*tercero caso de uso*/
-        private void button3_Click(object sender, EventArgs e)
+        private void btnJugar_Click(object sender, EventArgs e)
         {
-            groupBox2.Enabled = false;
-            groupBox1.Enabled = true;
+            gbAgregarPersonaje.Enabled = false;
+            gbInicioJuego.Enabled = true;
 
             pg.Jugar();
 
@@ -168,14 +172,14 @@ namespace TableroObserver
         {
             //limpiar la posicion anterior
             //ACB
-            string cell=(string)dataGridView1[antX, antY].Value;
+            string cell=(string)dgvTablero1[antX, antY].Value;
             if (cell == null) cell = "";
             cell = cell.Replace(actual.Nombre,"");
-            dataGridView1[antX, antY].Value=cell;
+            dgvTablero1[antX, antY].Value=cell;
 
             //imprimir la posicion nueva
-            cell = (string)dataGridView1[actual.X, actual.Y].Value;
-            dataGridView1[actual.X, actual.Y].Value = cell+actual.Nombre;
+            cell = (string)dgvTablero1[actual.X, actual.Y].Value;
+            dgvTablero1[actual.X, actual.Y].Value = cell+actual.Nombre;
             
             //
 
@@ -183,17 +187,9 @@ namespace TableroObserver
                     " (" + antX.ToString("00") + ", " + antY.ToString("00") + ")"+
                     "-> (" + actual.X.ToString("00") + ", " + actual.Y.ToString("00") + ")";
 
-            listBox1.Items.Add(linea);
+            lbxTablero3.Items.Add(linea);
 
-            listBox1.TopIndex = listBox1.Items.Count - 1;
-        }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            groupBox1.Enabled = true;
-            groupBox2.Enabled = false;
-            groupBox3.Enabled = false;
+            lbxTablero3.TopIndex = lbxTablero3.Items.Count - 1;
         }
     }
 }

@@ -587,16 +587,16 @@
 <XPD:REF name="Generalizations[0]">ecI6siO9m0KdaA2nI5F2pwAA</XPD:REF>
 <XPD:ATTR name="#Operations" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="A7zGukUDK0W256Z1td8APQAA">
-<XPD:ATTR name="Name" type="string">PolimorferGamer</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">EscaleraSerpientes</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">Create</XPD:ATTR>
 <XPD:REF name="Owner">NK6LFT+1EUKIjlEQQZT8uwAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="fwztdU/s0U2x88cj0ipD0QAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="g5S2dDki6UCHMPeCzPGbwwAA">
 <XPD:ATTR name="Name" type="string">Ancho</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">A7zGukUDK0W256Z1td8APQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="VyhbdFZVnkahVa3hmvvuKQAA">
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="F6wOfS9Q+EaodhmofMX8WwAA">
 <XPD:ATTR name="Name" type="string">Alto</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">A7zGukUDK0W256Z1td8APQAA</XPD:REF>
@@ -629,9 +629,9 @@
 <XPD:ATTR name="Name" type="string">ListarJugadores</XPD:ATTR>
 <XPD:REF name="Owner">NK6LFT+1EUKIjlEQQZT8uwAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="d8rWhGiXwkCJAcZAHHKCOAAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="KlJJa8cIpE6RqrD3LJRx9QAA">
 <XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">List&lt;GenericGamer&gt;</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">List&lt;GenericJugador&gt;</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">PpfJ574K1EOt1oiUt3BP+AAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
