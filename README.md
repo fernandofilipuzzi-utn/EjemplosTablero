@@ -1,9 +1,9 @@
-# Laboratorio 2 Guía 1 - Interacción entre objetos (sin herencia)
+# Ejemplos de tableros.
 
 ## Índice
 
-* [Ejemplo de tablero realizado con panel y picturebox](#tablero_sencillo)
-* [Ejemplo de tablero usando multiples vistas mediante el patrón observer](#tablero_observer)
+* [Tablero realizado con panel y picturebox](#tablero-sencillo)
+* [Tablero usando multiples vistas mediante el patrón observer](#tablero-observer)
  
 ## Tablero sencillo
 
