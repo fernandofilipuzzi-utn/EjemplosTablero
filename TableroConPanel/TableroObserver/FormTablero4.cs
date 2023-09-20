@@ -24,14 +24,16 @@ namespace TableroObserver
             InitializeComponent();
             mapeador = new MapeadorGraphicsHelper(this, Width, Height, Widtht, Heightt);
         }
-        public void AgregarPersonaje(GenericJugador nuevoPersonaje)
-        {
-            mapeador.AgregarPersonaje(nuevoPersonaje);
-        }
+
         private void FormTablero4_Load(object sender, EventArgs e)
         {
         }
 
+        public void AgregarPersonaje(GenericJugador nuevoPersonaje)
+        {
+            mapeador.AgregarPersonaje(nuevoPersonaje);
+        }
+        
         public void Notificar(int antX, int antY, GenericJugador actual)
         {
             mapeador.Notificar(antX, antY, actual);

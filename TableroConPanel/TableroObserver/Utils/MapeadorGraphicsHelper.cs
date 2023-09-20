@@ -14,7 +14,7 @@ namespace TableroObserver.Utils
     /// <summary>
     /// ayuda a pintar los jugadores usando Graphics
     /// </summary>
-    class MapeadorGraphicsHelper: IObservador
+    class MapeadorGraphicsHelper : IObservador
     {
         List<Image> pictures = new List<Image>();
         List<GenericJugador> jugadores = new List<GenericJugador>();
@@ -23,28 +23,28 @@ namespace TableroObserver.Utils
         int Height; int Width;
         int Heightt; int Widtht;
 
-        public MapeadorGraphicsHelper(Form parent, int width, int height, int widtht, int heightt )
+        public MapeadorGraphicsHelper(Form parent, int width, int height, int widtht, int heightt)
         {
-            this.parent=parent;
-            this.Height=height;
-            this.Width=width; 
-           
-            this.Heightt=heightt;
-           this.Widtht=widtht;
+            this.parent = parent;
+            this.Height = height;
+            this.Width = width;
+
+            this.Heightt = heightt;
+            this.Widtht = widtht;
         }
 
         public void AgregarPersonaje(GenericJugador nuevoPersonaje)
-        {         
+        {
             pictures.Add(Util.SelectImage(nuevoPersonaje));
             jugadores.Add(nuevoPersonaje);
         }
 
-        public Image this[GenericJugador gg]
+        public Image this[GenericJugador personaje]
         {
             get
             {
                 for (int i = 0; i < jugadores.Count; i++)
-                    if (jugadores[i] == gg)
+                    if (jugadores[i] == personaje)
                         return pictures[i];
                 return null;
             }
@@ -65,35 +65,35 @@ namespace TableroObserver.Utils
 
                 Brush brush = new SolidBrush(Color.Gray);
                 g.FillRectangle(brush, antX * dx, antY * dy, dx, dy);
-               
-                //CELDA VIEJA
-                int shift = dx/6;
+
+                #region CELDA VIEJA
+                int shift = dx / 6;
                 int i = 0;
                 int dxp = dx;
                 int dyp = dy;
                 int offset = 0;
-                foreach (GenericJugador gg in jugadores)
+                foreach (GenericJugador personaje in jugadores)
                 {
-                    if (antX == gg.X && antY == gg.Y)
+                    if (antX == personaje.X && antY == personaje.Y)
                     {
-                        Image pb_o = this[gg];
+                        Image pb_o = this[personaje];
                         if (pb_o != null)
                         {
                             //g.DrawImage(pb_o, nuevoPersonaje.X * dx + shift, nuevoPersonaje.Y * dy + shift, dx, dy);
                             g.DrawImage(pb_o,
-                                new Rectangle(gg.X * dx + offset, gg.Y * dy + offset,
-                                                dxp, dyp),
-                                new Rectangle(0, 0, pb_o.Width, pb_o.Height),
-                                GraphicsUnit.Pixel);
+                                        new Rectangle(personaje.X * dx + offset, personaje.Y * dy + offset, dxp, dyp),
+                                        new Rectangle(0, 0, pb_o.Width, pb_o.Height),
+                                        GraphicsUnit.Pixel);
                             i++;
                             dxp -= i * shift;
                             dyp -= i * shift;
-                            offset = i * shift;                            
+                            offset = i * shift;
                         }
                     }
                 }
+                #endregion
 
-                //CELDA NUEVA
+                #region NUEVA
                 shift = dx / 6;
                 i = 0;
                 dxp = dx;
@@ -118,9 +118,10 @@ namespace TableroObserver.Utils
                             offset = i * shift;
                         }
                     }
-                }                
-               // pb.Top = actual.Y * dy;
-               // pb.Left = actual.X * dx;
+                }
+                #endregion
+                // pb.Top = actual.Y * dy;
+                // pb.Left = actual.X * dx;
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -27,12 +28,11 @@ namespace TableroObserver.Utils
             this.Height=height;
             this.Width=width; 
             this.Heightt=heightt;
-           
-            
+                       
             this.Widtht=widtht;
         }
 
-        public void AgregarPersonaje(GenericJugador gg)
+        public void AgregarPersonaje(GenericJugador nuevoPersonaje)
         {
             PictureBox pb = new PictureBox();
 
@@ -41,13 +41,13 @@ namespace TableroObserver.Utils
             pb.Width = 20;
             pb.Height = 20;
             //pb.Image = Properties.Resources.caballero;
-            pb.Image = Util.SelectImage( gg );
+            pb.Image = Util.SelectImage( nuevoPersonaje );
 
             pictures.Add(pb);
 
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            jugadores.Add(gg);
+            jugadores.Add(nuevoPersonaje);
         }
 
         public PictureBox this[GenericJugador personaje]
