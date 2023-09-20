@@ -14,6 +14,9 @@ namespace TableroObserver
 {
     public partial class FormTablero4 : Form, IObservador
     {
+        /// <summary>
+        /// ayuda a pintar usando el graphics
+        /// </summary>
         private MapeadorGraphicsHelper mapeador;
 
         public FormTablero4(int Widtht, int Heightt)

@@ -9,8 +9,7 @@ namespace TableroObserver.Modelo
     public abstract class GenericJugador
     {
         public static Random rand = new Random();
-
-        public string Nombre {get; protected set;}
+                public string Nombre {get; protected set;}
 
         private int x;
         public int X 

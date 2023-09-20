@@ -14,8 +14,9 @@ namespace TableroObserver.Modelo
             Y = rand.Next(0, YMax);
         }
 
-        /*movimiento horizontal en el rango de
-         * 2 hacia atras y 2 hacia adelante*/
+        /// <summary>
+        /// movimiento horizontal en el rango de  2 hacia atras y 2 hacia adelante
+        /// </summary>        
         public override void Mover()
         {
             X=rand.Next(X-2, X+3);

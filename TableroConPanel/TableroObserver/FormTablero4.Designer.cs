@@ -38,7 +38,7 @@
             this.ClientSize = new System.Drawing.Size(656, 593);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormTablero4";
-            this.Text = "Tablero 4";
+            this.Text = "Tablero 4 - Utilizando la clase Graphics";
             this.Load += new System.EventHandler(this.FormTablero4_Load);
             this.ResumeLayout(false);
 

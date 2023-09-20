@@ -75,9 +75,12 @@ namespace TableroObserver.Modelo
                 if(jugador!=null) jugador.Mover();             
             }
         }
-        
 
-        /*para consultar jugadores */
+
+        /// <summary>
+        /// para consultar jugadores
+        /// </summary>
+        /// <returns></returns>
         public List<GenericJugador> ListarJugadores() 
         {
             return jugadores;//jugadores;

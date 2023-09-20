@@ -14,8 +14,13 @@ namespace TableroObserver
 {
     public partial class FormPrincipal : Form, IObservador
     {
-        EscaleraSerpientes pg;
-        MapeadorPictureBoxHelper mapeadorHelper;
+        EscaleraSerpientes juego;
+
+        /// <summary>
+        /// ayuda a pintar usando picturebox en el tablero2
+        /// </summary>
+        MapeadorPictureBoxHelper mapeadorPictureHelper;
+
         FormTablero4 fTablero4;
 
         public FormPrincipal()
@@ -23,7 +28,7 @@ namespace TableroObserver
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FormPrincipal_Load(object sender, EventArgs e)
         {
             gbInicioJuego.Enabled = true;
             gbAgregarPersonaje.Enabled = false;
@@ -89,17 +94,17 @@ namespace TableroObserver
 
 
             #region creando el juego
-            pg = new EscaleraSerpientes(ancho,alto);
+            juego = new EscaleraSerpientes(ancho,alto);
 
             gbInicioJuego.Enabled = false;
             gbAgregarPersonaje.Enabled = true;
             gbJugar.Enabled = false;
 
             //
-            mapeadorHelper = new MapeadorPictureBoxHelper(pnlTablero2, pnlTablero2.Width, pnlTablero2.Height, pg.Ancho, pg.Alto);
+            mapeadorPictureHelper = new MapeadorPictureBoxHelper(pnlTablero2, pnlTablero2.Width, pnlTablero2.Height, juego.Ancho, juego.Alto);
 
             //
-            fTablero4 = new FormTablero4(pg.Ancho, pg.Alto);
+            fTablero4 = new FormTablero4(juego.Ancho, juego.Alto);
             fTablero4.BackColor = Color.Gray;
             fTablero4.Show();
             #endregion
@@ -118,18 +123,19 @@ namespace TableroObserver
             //validador de las entradas 
             if (tipo != -1 && string.IsNullOrEmpty(nombre.Trim())==false)
             {
-                
-                /*proceso*/
+                #region proceso de creación del personaje
+
                 GenericJugador nuevoPersonaje;
-                nuevoPersonaje = pg.AgregarJugador(nombre, (EscaleraSerpientes.TipoJugador)tipo);
+                nuevoPersonaje = juego.AgregarJugador(nombre, (EscaleraSerpientes.TipoJugador)tipo);
                 
-                nuevoPersonaje.AgregarObs(this);
-                nuevoPersonaje.AgregarObs(mapeadorHelper);
+                nuevoPersonaje.AgregarObs(this);//tablero1,2,3
+                nuevoPersonaje.AgregarObs(mapeadorPictureHelper);
                 nuevoPersonaje.AgregarObs(fTablero4);
 
-                mapeadorHelper.AgregarPersonaje(nuevoPersonaje);
+                mapeadorPictureHelper.AgregarPersonaje(nuevoPersonaje);
                 fTablero4.AgregarPersonaje(nuevoPersonaje);
-
+                #endregion
+                
                 //Imprimir(nuevoPersonaje);
 
                 gbJugar.Enabled = true;
@@ -143,18 +149,22 @@ namespace TableroObserver
         }
 
 
-        /*tercero caso de uso*/
+        /// <summary>
+        /// tercero caso de uso
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnJugar_Click(object sender, EventArgs e)
         {
             gbAgregarPersonaje.Enabled = false;
             gbInicioJuego.Enabled = true;
 
-            pg.Jugar();
+            juego.Jugar();
 
             /*
              * METODO simple para actualizar las posiciones si no tuviera el observer implementado
             /Limpiar();
-            foreach (GenericJugador nuevoPersonaje in pg.ListarJugadores())
+            foreach (GenericJugador nuevoPersonaje in juego.ListarJugadores())
             {
                 Imprimir(nuevoPersonaje);
             }
@@ -189,21 +199,29 @@ namespace TableroObserver
 
         public void Notificar(int antX, int antY, GenericJugador actual)
         {
+            PintaTablero1(antX, antY, actual);
+            PintaTablero3(antX, antY, actual);
+        }
+
+        private void PintaTablero1(int antX, int antY, GenericJugador actual)
+        {
             #region limpiar la posicion anterior
-            string cell=(string)dgvTablero1[antX, antY].Value;
+            string cell = (string)dgvTablero1[antX, antY].Value;
             if (cell == null) cell = "";
-            cell = cell.Replace(actual.Nombre,"");
-            dgvTablero1[antX, antY].Value=cell;
+            cell = cell.Replace(actual.Nombre, "");
+            dgvTablero1[antX, antY].Value = cell;
             #endregion
 
             #region imprimir la posicion nueva
             cell = (string)dgvTablero1[actual.X, actual.Y].Value;
-            dgvTablero1[actual.X, actual.Y].Value = cell+actual.Nombre;
+            dgvTablero1[actual.X, actual.Y].Value = cell + actual.Nombre;
             #endregion
-            //
+        }
 
+        private void PintaTablero3(int antX, int antY, GenericJugador actual)
+        {
             string linea = "Nombre:" + actual.Nombre +
-                    " (" + antX.ToString("00") + ", " + antY.ToString("00") + ")"+
+                    " (" + antX.ToString("00") + ", " + antY.ToString("00") + ")" +
                     "-> (" + actual.X.ToString("00") + ", " + actual.Y.ToString("00") + ")";
 
             lbxTablero3.Items.Add(linea);
