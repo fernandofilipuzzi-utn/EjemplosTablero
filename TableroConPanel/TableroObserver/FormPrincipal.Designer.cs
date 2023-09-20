@@ -36,16 +36,16 @@
             this.tbNombreJugador = new System.Windows.Forms.TextBox();
             this.cbTipoJugador = new System.Windows.Forms.ComboBox();
             this.gbInicioJuego = new System.Windows.Forms.GroupBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudFilas = new System.Windows.Forms.NumericUpDown();
+            this.nudColumnas = new System.Windows.Forms.NumericUpDown();
             this.gbAgregarPersonaje = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbJugar = new System.Windows.Forms.GroupBox();
             this.pnlTablero2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablero1)).BeginInit();
             this.gbInicioJuego.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFilas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudColumnas)).BeginInit();
             this.gbAgregarPersonaje.SuspendLayout();
             this.gbJugar.SuspendLayout();
             this.SuspendLayout();
@@ -118,8 +118,8 @@
             // 
             // gbInicioJuego
             // 
-            this.gbInicioJuego.Controls.Add(this.numericUpDown2);
-            this.gbInicioJuego.Controls.Add(this.numericUpDown1);
+            this.gbInicioJuego.Controls.Add(this.nudFilas);
+            this.gbInicioJuego.Controls.Add(this.nudColumnas);
             this.gbInicioJuego.Controls.Add(this.btnCrearJuego);
             this.gbInicioJuego.Location = new System.Drawing.Point(414, 22);
             this.gbInicioJuego.Name = "gbInicioJuego";
@@ -128,45 +128,45 @@
             this.gbInicioJuego.TabStop = false;
             this.gbInicioJuego.Text = "Inicio del juego";
             // 
-            // numericUpDown2
+            // nudFilas
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(94, 22);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.nudFilas.Location = new System.Drawing.Point(94, 22);
+            this.nudFilas.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.nudFilas.Minimum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(44, 20);
-            this.numericUpDown2.TabIndex = 2;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.nudFilas.Name = "nudFilas";
+            this.nudFilas.Size = new System.Drawing.Size(44, 20);
+            this.nudFilas.TabIndex = 2;
+            this.nudFilas.Value = new decimal(new int[] {
             5,
             0,
             0,
             0});
             // 
-            // numericUpDown1
+            // nudColumnas
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(23, 23);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nudColumnas.Location = new System.Drawing.Point(23, 23);
+            this.nudColumnas.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nudColumnas.Minimum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(54, 20);
-            this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nudColumnas.Name = "nudColumnas";
+            this.nudColumnas.Size = new System.Drawing.Size(54, 20);
+            this.nudColumnas.TabIndex = 1;
+            this.nudColumnas.Value = new decimal(new int[] {
             5,
             0,
             0,
@@ -229,8 +229,8 @@
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablero1)).EndInit();
             this.gbInicioJuego.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFilas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudColumnas)).EndInit();
             this.gbAgregarPersonaje.ResumeLayout(false);
             this.gbAgregarPersonaje.PerformLayout();
             this.gbJugar.ResumeLayout(false);
@@ -250,8 +250,8 @@
         private System.Windows.Forms.GroupBox gbInicioJuego;
         private System.Windows.Forms.GroupBox gbAgregarPersonaje;
         private System.Windows.Forms.GroupBox gbJugar;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudFilas;
+        private System.Windows.Forms.NumericUpDown nudColumnas;
         private System.Windows.Forms.Panel pnlTablero2;
         private System.Windows.Forms.Label label1;
     }

@@ -43,70 +43,26 @@ namespace TableroObserver
         private void btnCrearJuego_Click(object sender, EventArgs e)
         {
             //entrada de datos
-            int ancho = 5;
-            int alto = 5;
-
-            #region inicialización del tablero.
-            dgvTablero1.RowCount = alto;
-            dgvTablero1.RowHeadersVisible = false;
-
-            int height = dgvTablero1.ClientSize.Height - dgvTablero1.Margin.Bottom ;
-            foreach(DataGridViewRow rv in dgvTablero1.Rows)
-            {
-                rv.Height =height/alto;
-            }
-            
-            dgvTablero1.ColumnCount = alto;
-            dgvTablero1.ColumnHeadersVisible = false;
-
-            int width = dgvTablero1.ClientSize.Width - dgvTablero1.Margin.Right;
-            foreach (DataGridViewColumn cv in dgvTablero1.Columns)
-            {
-                cv.Width = width / ancho;
-            }
-            #endregion
-
-            #region limpieza del tablero juego anterior.
-            //
-            for (int i = 0; i < dgvTablero1.RowCount; i++)
-            {
-                for (int j = 0; j < dgvTablero1.ColumnCount; j++)
-                {
-                    dgvTablero1[i, j].Value = "";
-                }
-            }
-            
-            //
-            lbxTablero3.Items.Clear();
-
-            //
-            if (fTablero4 != null)
-            {
-                fTablero4.Close();
-                fTablero4.Dispose();
-            }
-            #endregion
-
-            //
+            int ancho = Convert.ToInt32(nudColumnas.Value);
+            int alto = Convert.ToInt32(nudFilas.Value);
+                        
             cbTipoJugador.Items.Clear();
             cbTipoJugador.Items.Add("ONE");
             cbTipoJugador.Items.Add("TWO");
 
-
             #region creando el juego
-            juego = new EscaleraSerpientes(ancho,alto);
+            juego = new EscaleraSerpientes(ancho, alto);
 
             gbInicioJuego.Enabled = false;
             gbAgregarPersonaje.Enabled = true;
             gbJugar.Enabled = false;
 
             //
-            mapeadorPictureHelper = new MapeadorPictureBoxHelper(pnlTablero2, pnlTablero2.Width, pnlTablero2.Height, juego.Ancho, juego.Alto);
-
-            //
-            fTablero4 = new FormTablero4(juego.Ancho, juego.Alto);
-            fTablero4.BackColor = Color.Gray;
-            fTablero4.Show();
+            InicializarTablero1(alto, ancho);
+            InicializarTablero2();
+            InicializarTablero3();
+            InicializarTablero4();
+            
             #endregion
         }
 
@@ -121,13 +77,13 @@ namespace TableroObserver
             int tipo = cbTipoJugador.SelectedIndex;
 
             //validador de las entradas 
-            if (tipo != -1 && string.IsNullOrEmpty(nombre.Trim())==false)
+            if (tipo != -1 && string.IsNullOrEmpty(nombre.Trim()) == false)
             {
                 #region proceso de creación del personaje
 
                 GenericJugador nuevoPersonaje;
                 nuevoPersonaje = juego.AgregarJugador(nombre, (EscaleraSerpientes.TipoJugador)tipo);
-                
+
                 nuevoPersonaje.AgregarObs(this);//tablero1,2,3
                 nuevoPersonaje.AgregarObs(mapeadorPictureHelper);
                 nuevoPersonaje.AgregarObs(fTablero4);
@@ -135,7 +91,7 @@ namespace TableroObserver
                 mapeadorPictureHelper.AgregarPersonaje(nuevoPersonaje);
                 fTablero4.AgregarPersonaje(nuevoPersonaje);
                 #endregion
-                
+
                 //Imprimir(nuevoPersonaje);
 
                 gbJugar.Enabled = true;
@@ -168,13 +124,42 @@ namespace TableroObserver
             {
                 Imprimir(nuevoPersonaje);
             }
-             
+            */
         }
-        
-        
-         * forma de la programación tradicional.
-         * 
-        private void Limpiar()
+
+
+        /* forma de la programación tradicional.
+        * 
+       private void Limpiar()
+       {
+           for (int i = 0; i < dgvTablero1.RowCount; i++)
+           {
+               for (int j = 0; j < dgvTablero1.ColumnCount; j++)
+               {
+                   dgvTablero1[i, j].Value = "";
+               }
+           }
+       }
+
+       private void Imprimir(GenericJugador nuevoPersonaje)
+       {
+           //
+
+           dgvTablero1[nuevoPersonaje.X, nuevoPersonaje.Y].Value = nuevoPersonaje.Nombre;
+           //
+           string linea = "Nombre:" + nuevoPersonaje.Nombre + " (" + nuevoPersonaje.X.ToString("00") + ", " + nuevoPersonaje.Y.ToString("00") + ")";
+           lbxtablero3.Items.Add(linea);
+       }
+       */
+
+
+        public void Notificar(int antX, int antY, GenericJugador actual)
+        {
+            PintaTablero1(antX, antY, actual);
+            PintaTablero3(antX, antY, actual);
+        }
+
+        private void InicializarTablero1(int alto, int ancho)
         {
             for (int i = 0; i < dgvTablero1.RowCount; i++)
             {
@@ -183,24 +168,49 @@ namespace TableroObserver
                     dgvTablero1[i, j].Value = "";
                 }
             }
+
+            dgvTablero1.ScrollBars = ScrollBars.None; 
+
+            dgvTablero1.RowCount = alto;
+            dgvTablero1.RowHeadersVisible = false;
+
+            int height = dgvTablero1.ClientSize.Height - dgvTablero1.Margin.Bottom;
+            foreach (DataGridViewRow rv in dgvTablero1.Rows)
+            {
+                rv.Height = height / alto;
+            }
+
+            dgvTablero1.ColumnCount = alto;
+            dgvTablero1.ColumnHeadersVisible = false;
+
+            int width = dgvTablero1.ClientSize.Width - dgvTablero1.Margin.Right;
+            foreach (DataGridViewColumn cv in dgvTablero1.Columns)
+            {
+                cv.Width = width / ancho;
+            }
         }
 
-        private void Imprimir(GenericJugador nuevoPersonaje)
+        private void InicializarTablero2()
         {
-            //
-            
-            dgvTablero1[nuevoPersonaje.X, nuevoPersonaje.Y].Value = nuevoPersonaje.Nombre;
-            //
-            string linea = "Nombre:" + nuevoPersonaje.Nombre + " (" + nuevoPersonaje.X.ToString("00") + ", " + nuevoPersonaje.Y.ToString("00") + ")";
-            lbxtablero3.Items.Add(linea);
-        }
-        */
+            mapeadorPictureHelper = new MapeadorPictureBoxHelper(pnlTablero2, pnlTablero2.Width, pnlTablero2.Height, juego.Ancho, juego.Alto);
         }
 
-        public void Notificar(int antX, int antY, GenericJugador actual)
+        private void InicializarTablero3()
         {
-            PintaTablero1(antX, antY, actual);
-            PintaTablero3(antX, antY, actual);
+            lbxTablero3.Items.Clear();
+        }
+
+        private void InicializarTablero4()
+        {
+            if (fTablero4 != null)
+            {
+                fTablero4.Close();
+                fTablero4.Dispose();
+            }
+
+            fTablero4 = new FormTablero4(juego.Ancho, juego.Alto);
+            fTablero4.BackColor = Color.Gray;
+            fTablero4.Show();
         }
 
         private void PintaTablero1(int antX, int antY, GenericJugador actual)
@@ -229,3 +239,4 @@ namespace TableroObserver
         }
     }
 }
+
