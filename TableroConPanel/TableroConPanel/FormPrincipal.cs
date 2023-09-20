@@ -42,13 +42,16 @@ namespace TableroConPanel
         void Dibujar(int cel)
         {
             int Aw = pnlTablero.Width / Util.Columnas;
-            int Ah = pnlTablero.Width / Util.Renglones;
+            int Ah = pnlTablero.Height / Util.Renglones;
 
             int columna = 0, fila = 0;
             Util.CellToFilaColumna(cel, ref fila, ref columna);
 
-            PictureBoxEscalera.Top = Aw * fila;
+            PictureBoxEscalera.Top = Ah * fila;
             PictureBoxEscalera.Left = Aw * columna;
+
+            //alternativa
+            //PictureBoxEscalera.Location=new Point { Y = Ah* fila,X = Aw * columna }; 
         }
     }
 }
