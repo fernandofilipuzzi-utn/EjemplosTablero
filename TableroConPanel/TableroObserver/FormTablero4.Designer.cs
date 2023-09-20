@@ -39,7 +39,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormTablero4";
             this.Text = "Tablero 4";
-            this.Load += new System.EventHandler(this.FormMaperDraw_Load);
+            this.Load += new System.EventHandler(this.FormTablero4_Load);
             this.ResumeLayout(false);
 
         }

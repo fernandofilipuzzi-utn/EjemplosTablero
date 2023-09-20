@@ -127,7 +127,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="gMvAX81kE0WN3k2KuD/kjAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="fdmlJgt8t0m9z8HtzRlWngAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">SpecializedOne</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">EspecializadoUno</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="mykdrAcnpE+W8NcEyn8UMAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -158,7 +158,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="BUfkk8xRY0KAvEquPeiKegAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="lsLbk9edrUqdPtD9OfoPLgAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">SpecializedTwo</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">EspecializadoDos</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="MVW82josNU6U/F4uwOfn3gAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -768,7 +768,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[2]" type="UMLClass" guid="Qm8UhhL/pUK7h40Ar7puDwAA">
-<XPD:ATTR name="Name" type="string">SpecializedOne</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">EspecializadoUno</XPD:ATTR>
 <XPD:REF name="Namespace">yHv2yNSwykqov1hynPiK+gAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">bMwU5xfs5EuWkQFma4uYtgAA</XPD:REF>
@@ -787,7 +787,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[3]" type="UMLClass" guid="jcj1sjL4IEGVMbFBU/tw0QAA">
-<XPD:ATTR name="Name" type="string">SpecializedTwo</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">EspecializadoDos</XPD:ATTR>
 <XPD:REF name="Namespace">yHv2yNSwykqov1hynPiK+gAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">z21kjuIek0CEG2dqssZmgwAA</XPD:REF>

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TableroObserver
+namespace TableroObserver.Modelo
 {
-    public class SpecializedOne:GenericJugador
+    public class EspecializadoUno:GenericJugador
     {
-        public SpecializedOne(string nombre, int Ancho, int Alto)
+        public EspecializadoUno(string nombre, int Ancho, int Alto)
             : base(nombre, Ancho, Alto)
         {
             X = rand.Next(0, XMax);
@@ -19,7 +19,6 @@ namespace TableroObserver
         public override void Mover()
         {
             X=rand.Next(X-2, X+3);
-
         }
     }
 }

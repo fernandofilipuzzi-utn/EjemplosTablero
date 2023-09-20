@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using TableroObserver.Utils;
+using TableroObserver.Modelo;
+
 namespace TableroObserver
 {
     public partial class FormPrincipal : Form, IObservador
     {
         EscaleraSerpientes pg;
-        Maper maperHelper;
-        FormTablero4 fmd;
+        MapeadorPictureBoxHelper mapeadorHelper;
+        FormTablero4 fTablero4;
 
         public FormPrincipal()
         {
@@ -27,15 +30,18 @@ namespace TableroObserver
             gbJugar.Enabled = false;
         }
 
-        /*primero caso de uso*/
+        /// <summary>
+        /// primero caso de uso
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCrearJuego_Click(object sender, EventArgs e)
         {
             //entrada de datos
             int ancho = 5;
             int alto = 5;
 
-            //inicialización del tablero.
-            //
+            #region inicialización del tablero.
             dgvTablero1.RowCount = alto;
             dgvTablero1.RowHeadersVisible = false;
 
@@ -53,8 +59,10 @@ namespace TableroObserver
             {
                 cv.Width = width / ancho;
             }
+            #endregion
 
-            //limpieza del tablero juego anterior.
+            #region limpieza del tablero juego anterior.
+            //
             for (int i = 0; i < dgvTablero1.RowCount; i++)
             {
                 for (int j = 0; j < dgvTablero1.ColumnCount; j++)
@@ -62,17 +70,25 @@ namespace TableroObserver
                     dgvTablero1[i, j].Value = "";
                 }
             }
-
+            
             //
             lbxTablero3.Items.Clear();
+
+            //
+            if (fTablero4 != null)
+            {
+                fTablero4.Close();
+                fTablero4.Dispose();
+            }
+            #endregion
 
             //
             cbTipoJugador.Items.Clear();
             cbTipoJugador.Items.Add("ONE");
             cbTipoJugador.Items.Add("TWO");
-                       
 
-            //
+
+            #region creando el juego
             pg = new EscaleraSerpientes(ancho,alto);
 
             gbInicioJuego.Enabled = false;
@@ -80,16 +96,19 @@ namespace TableroObserver
             gbJugar.Enabled = false;
 
             //
-            maperHelper = new Maper(pnlTablero2, pnlTablero2.Width, pnlTablero2.Height, pg.Ancho, pg.Alto);
+            mapeadorHelper = new MapeadorPictureBoxHelper(pnlTablero2, pnlTablero2.Width, pnlTablero2.Height, pg.Ancho, pg.Alto);
 
             //
-            fmd = new FormTablero4(pg.Ancho, pg.Alto);
-            fmd.BackColor = Color.Gray;
-            fmd.Show();
+            fTablero4 = new FormTablero4(pg.Ancho, pg.Alto);
+            fTablero4.BackColor = Color.Gray;
+            fTablero4.Show();
+            #endregion
         }
 
 
-        /*segundo caso de uso*/
+        /// <summary>
+        /// segundo caso de uso
+        /// </summary>
         private void btnAgregarPersonaje_Click(object sender, EventArgs e)
         {
             //captura de datos de la pantalla.
@@ -101,17 +120,17 @@ namespace TableroObserver
             {
                 
                 /*proceso*/
-                GenericJugador gg;
-                gg = pg.AgregarJugador(nombre, (EscaleraSerpientes.TipoJugador)tipo);
+                GenericJugador nuevoPersonaje;
+                nuevoPersonaje = pg.AgregarJugador(nombre, (EscaleraSerpientes.TipoJugador)tipo);
                 
-                gg.AgregarObs(this);
-                gg.AgregarObs(maperHelper);
-                gg.AgregarObs(fmd);
+                nuevoPersonaje.AgregarObs(this);
+                nuevoPersonaje.AgregarObs(mapeadorHelper);
+                nuevoPersonaje.AgregarObs(fTablero4);
 
-                maperHelper.AgregarGG(gg);
-                fmd.AgregarGG(gg);
+                mapeadorHelper.AgregarPersonaje(nuevoPersonaje);
+                fTablero4.AgregarPersonaje(nuevoPersonaje);
 
-                //Imprimir(gg);
+                //Imprimir(nuevoPersonaje);
 
                 gbJugar.Enabled = true;
                 tbNombreJugador.Text = "";
@@ -135,9 +154,9 @@ namespace TableroObserver
             /*
              * METODO simple para actualizar las posiciones si no tuviera el observer implementado
             /Limpiar();
-            foreach (GenericJugador gg in pg.ListarJugadores())
+            foreach (GenericJugador nuevoPersonaje in pg.ListarJugadores())
             {
-                Imprimir(gg);
+                Imprimir(nuevoPersonaje);
             }
              
         }
@@ -147,40 +166,40 @@ namespace TableroObserver
          * 
         private void Limpiar()
         {
-            for (int i = 0; i < dataGridView1.RowCount; i++)
+            for (int i = 0; i < dgvTablero1.RowCount; i++)
             {
-                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                for (int j = 0; j < dgvTablero1.ColumnCount; j++)
                 {
-                    dataGridView1[i, j].Value = "";
+                    dgvTablero1[i, j].Value = "";
                 }
             }
         }
 
-        private void Imprimir(GenericJugador gg)
+        private void Imprimir(GenericJugador nuevoPersonaje)
         {
             //
             
-            dataGridView1[gg.X, gg.Y].Value = gg.Nombre;
+            dgvTablero1[nuevoPersonaje.X, nuevoPersonaje.Y].Value = nuevoPersonaje.Nombre;
             //
-            string linea = "Nombre:" + gg.Nombre + " (" + gg.X.ToString("00") + ", " + gg.Y.ToString("00") + ")";
-            listBox1.Items.Add(linea);
+            string linea = "Nombre:" + nuevoPersonaje.Nombre + " (" + nuevoPersonaje.X.ToString("00") + ", " + nuevoPersonaje.Y.ToString("00") + ")";
+            lbxtablero3.Items.Add(linea);
         }
         */
         }
 
         public void Notificar(int antX, int antY, GenericJugador actual)
         {
-            //limpiar la posicion anterior
-            //ACB
+            #region limpiar la posicion anterior
             string cell=(string)dgvTablero1[antX, antY].Value;
             if (cell == null) cell = "";
             cell = cell.Replace(actual.Nombre,"");
             dgvTablero1[antX, antY].Value=cell;
+            #endregion
 
-            //imprimir la posicion nueva
+            #region imprimir la posicion nueva
             cell = (string)dgvTablero1[actual.X, actual.Y].Value;
             dgvTablero1[actual.X, actual.Y].Value = cell+actual.Nombre;
-            
+            #endregion
             //
 
             string linea = "Nombre:" + actual.Nombre +
@@ -188,7 +207,6 @@ namespace TableroObserver
                     "-> (" + actual.X.ToString("00") + ", " + actual.Y.ToString("00") + ")";
 
             lbxTablero3.Items.Add(linea);
-
             lbxTablero3.TopIndex = lbxTablero3.Items.Count - 1;
         }
     }

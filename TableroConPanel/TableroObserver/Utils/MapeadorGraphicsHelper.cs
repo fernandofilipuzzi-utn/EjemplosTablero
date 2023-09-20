@@ -7,19 +7,23 @@ using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace TableroObserver
+using TableroObserver.Modelo;
+
+namespace TableroObserver.Utils
 {
-    class MaperDraw: IObservador
+    /// <summary>
+    /// ayuda a pintar los jugadores usando Graphics
+    /// </summary>
+    class MapeadorGraphicsHelper: IObservador
     {
         List<Image> pictures = new List<Image>();
-        List<GenericJugador> gamers = new List<GenericJugador>();
+        List<GenericJugador> jugadores = new List<GenericJugador>();
 
         Form parent;
         int Height; int Width;
         int Heightt; int Widtht;
 
-        public MaperDraw(Form parent, int width, int height,
-            int widtht, int heightt )
+        public MapeadorGraphicsHelper(Form parent, int width, int height, int widtht, int heightt )
         {
             this.parent=parent;
             this.Height=height;
@@ -29,18 +33,18 @@ namespace TableroObserver
            this.Widtht=widtht;
         }
 
-        public void AgregarGG(GenericJugador gg)
+        public void AgregarPersonaje(GenericJugador nuevoPersonaje)
         {         
-            pictures.Add(Util.SelectImage(gg));
-            gamers.Add(gg);
+            pictures.Add(Util.SelectImage(nuevoPersonaje));
+            jugadores.Add(nuevoPersonaje);
         }
 
         public Image this[GenericJugador gg]
         {
             get
             {
-                for (int i = 0; i < gamers.Count; i++)
-                    if (gamers[i] == gg)
+                for (int i = 0; i < jugadores.Count; i++)
+                    if (jugadores[i] == gg)
                         return pictures[i];
                 return null;
             }
@@ -68,14 +72,14 @@ namespace TableroObserver
                 int dxp = dx;
                 int dyp = dy;
                 int offset = 0;
-                foreach (GenericJugador gg in gamers)
+                foreach (GenericJugador gg in jugadores)
                 {
                     if (antX == gg.X && antY == gg.Y)
                     {
                         Image pb_o = this[gg];
                         if (pb_o != null)
                         {
-                            //g.DrawImage(pb_o, gg.X * dx + shift, gg.Y * dy + shift, dx, dy);
+                            //g.DrawImage(pb_o, nuevoPersonaje.X * dx + shift, nuevoPersonaje.Y * dy + shift, dx, dy);
                             g.DrawImage(pb_o,
                                 new Rectangle(gg.X * dx + offset, gg.Y * dy + offset,
                                                 dxp, dyp),
@@ -95,16 +99,16 @@ namespace TableroObserver
                 dxp = dx;
                 dyp = dy;
                 offset = 0;
-                foreach (GenericJugador gg in gamers)
+                foreach (GenericJugador personaje in jugadores)
                 {
-                    if (actual.X == gg.X && actual.Y == gg.Y)
+                    if (actual.X == personaje.X && actual.Y == personaje.Y)
                     {
-                        Image pb_o = this[gg];
+                        Image pb_o = this[personaje];
                         if (pb_o != null)
                         {
-                            //g.DrawImage(pb_o, gg.X * dx + shift, gg.Y * dy + shift, dx, dy);
+                            //g.DrawImage(pb_o, nuevoPersonaje.X * dx + shift, nuevoPersonaje.Y * dy + shift, dx, dy);
                             g.DrawImage(pb_o,
-                                new Rectangle(gg.X * dx + offset, gg.Y * dy + offset,
+                                new Rectangle(personaje.X * dx + offset, personaje.Y * dy + offset,
                                                 dxp, dyp),
                                 new Rectangle(0, 0, pb_o.Width, pb_o.Height),
                                 GraphicsUnit.Pixel);
@@ -118,8 +122,6 @@ namespace TableroObserver
                // pb.Top = actual.Y * dy;
                // pb.Left = actual.X * dx;
             }
-
-
         }
     }
 

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TableroObserver
+namespace TableroObserver.Modelo
 {
+    /// <summary>
+    /// Representa el juego, tablero con los jugadores
+    /// </summary>
     public class EscaleraSerpientes
     {
         public enum TipoJugador { ONE, TWO }
@@ -39,11 +42,11 @@ namespace TableroObserver
             switch (tipo)
             { 
                 case TipoJugador.ONE:
-                    nuevo = new SpecializedOne(nombre, Ancho, Alto);
+                    nuevo = new EspecializadoUno(nombre, Ancho, Alto);
                     jugadores.Add(nuevo);
                     break;
                 case TipoJugador.TWO:
-                    nuevo = new SpecializedTwo(nombre, Ancho, Alto);
+                    nuevo = new EspecializadoDos(nombre, Ancho, Alto);
                     jugadores.Add(nuevo);
                     break;
             }
@@ -53,24 +56,23 @@ namespace TableroObserver
         
         public void Jugar()
         {
-            //code here
             /*
-            foreach (object gg in jugadores)
+            foreach (object personaje in jugadores)
             {
-                if (gg is SpecializedOne)
+                if (personaje is EspecializadoUno)
                 {
-                    ((SpecializedOne)gg).Mover();
+                    ((EspecializadoUno)personaje).Mover();
                 }
-                else if (gg is SpecializedTwo)
+                else if (personaje is EspecializadoDos)
                 {
-                    ((SpecializedTwo)gg).Mover();
+                    ((EspecializadoDos)personaje).Mover();
                 }
             }
             */
 
-            foreach (GenericJugador gg in jugadores)
+            foreach (GenericJugador jugador in jugadores)
             {
-                if(gg!=null) gg.Mover();             
+                if(jugador!=null) jugador.Mover();             
             }
         }
         
@@ -80,6 +82,5 @@ namespace TableroObserver
         {
             return jugadores;//jugadores;
         }
-
     }
 }

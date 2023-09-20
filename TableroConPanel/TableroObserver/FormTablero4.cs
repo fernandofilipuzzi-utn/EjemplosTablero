@@ -7,30 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using TableroObserver.Modelo;
+using TableroObserver.Utils;
+
 namespace TableroObserver
 {
     public partial class FormTablero4 : Form, IObservador
     {
-        private MaperDraw md;
-
+        private MapeadorGraphicsHelper mapeador;
 
         public FormTablero4(int Widtht, int Heightt)
         {
             InitializeComponent();
-            md = new MaperDraw(this, Width, Height, Widtht, Heightt);
+            mapeador = new MapeadorGraphicsHelper(this, Width, Height, Widtht, Heightt);
         }
-        public void AgregarGG(GenericJugador gg)
+        public void AgregarPersonaje(GenericJugador nuevoPersonaje)
         {
-            md.AgregarGG(gg);
+            mapeador.AgregarPersonaje(nuevoPersonaje);
         }
-        private void FormMaperDraw_Load(object sender, EventArgs e)
+        private void FormTablero4_Load(object sender, EventArgs e)
         {
-           
         }
 
         public void Notificar(int antX, int antY, GenericJugador actual)
         {
-            md.Notificar(antX, antY, actual);
+            mapeador.Notificar(antX, antY, actual);
         }
     }
 }

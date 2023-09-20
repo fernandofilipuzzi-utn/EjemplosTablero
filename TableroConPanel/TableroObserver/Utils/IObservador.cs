@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TableroObserver.Modelo;
 
-namespace TableroObserver
+namespace TableroObserver.Utils
 {
     public interface IObservador
     {

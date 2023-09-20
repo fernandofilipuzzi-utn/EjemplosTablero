@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TableroObserver.Utils;
 
-namespace TableroObserver
+namespace TableroObserver.Modelo
 {
     public abstract class GenericJugador
     {

@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 
 using System.Windows.Forms;
+using TableroObserver.Modelo;
 
-namespace TableroObserver
+namespace TableroObserver.Utils
 {
-    class Maper : IObservador
+    /// <summary>
+    /// ayuda a pintar o representar los jugadores usando picturebox y un panel
+    /// </summary>
+    class MapeadorPictureBoxHelper : IObservador
     {
         List<PictureBox> pictures = new List<PictureBox>();
-        List<GenericJugador> gamers = new List<GenericJugador>();
+        List<GenericJugador> jugadores = new List<GenericJugador>();
 
         Control parent;
         int Height; int Width;
         int Heightt; int Widtht;
 
-        public Maper(Control parent, int width, int height,
+        public MapeadorPictureBoxHelper(Control parent, int width, int height,
             int widtht, int heightt )
         {
             this.parent=parent;
@@ -28,7 +32,7 @@ namespace TableroObserver
             this.Widtht=widtht;
         }
 
-        public void AgregarGG(GenericJugador gg)
+        public void AgregarPersonaje(GenericJugador gg)
         {
             PictureBox pb = new PictureBox();
 
@@ -43,15 +47,15 @@ namespace TableroObserver
 
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            gamers.Add(gg);
+            jugadores.Add(gg);
         }
 
-        public PictureBox this[GenericJugador gg]
+        public PictureBox this[GenericJugador personaje]
         {
             get
             {
-                for (int i = 0; i < gamers.Count; i++)
-                    if (gamers[i] == gg)
+                for (int i = 0; i < jugadores.Count; i++)
+                    if (jugadores[i] == personaje)
                         return pictures[i];
                 return null;
             }

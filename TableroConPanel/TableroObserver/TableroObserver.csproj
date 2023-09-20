@@ -65,11 +65,11 @@
     <Compile Include="FormTablero4.Designer.cs">
       <DependentUpon>FormTablero4.cs</DependentUpon>
     </Compile>
-    <Compile Include="GenericJugador.cs" />
-    <Compile Include="IObservador.cs" />
-    <Compile Include="Maper.cs" />
-    <Compile Include="MaperDraw.cs" />
-    <Compile Include="EscaleraSerpientes.cs" />
+    <Compile Include="Modelo\GenericJugador.cs" />
+    <Compile Include="Utils\IObservador.cs" />
+    <Compile Include="Utils\MapeadorPictureBoxHelper.cs" />
+    <Compile Include="Utils\MapeadorGraphicsHelper.cs" />
+    <Compile Include="Modelo\EscaleraSerpientes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormTablero4.resx">
@@ -98,9 +98,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SpecializedOne.cs" />
-    <Compile Include="SpecializedTwo.cs" />
-    <Compile Include="Util.cs" />
+    <Compile Include="Modelo\EspecializadoUno.cs" />
+    <Compile Include="Modelo\EspecializadoDos.cs" />
+    <Compile Include="Utils\Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="uml\Formulario.jpg" />
