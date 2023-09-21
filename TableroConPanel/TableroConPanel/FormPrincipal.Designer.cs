@@ -29,33 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pnlTablero = new System.Windows.Forms.Panel();
-            this.pictureBoxEscalera = new System.Windows.Forms.PictureBox();
             this.nudNumeroCelda = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEscalera)).BeginInit();
+            this.pictureBoxEscalera = new System.Windows.Forms.PictureBox();
+            this.pnlTablero = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumeroCelda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEscalera)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnlTablero
-            // 
-            this.pnlTablero.Location = new System.Drawing.Point(12, 12);
-            this.pnlTablero.Name = "pnlTablero";
-            this.pnlTablero.Size = new System.Drawing.Size(494, 316);
-            this.pnlTablero.TabIndex = 0;
-            this.pnlTablero.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTablero_Paint);
-            // 
-            // pictureBoxEscalera
-            // 
-            this.pictureBoxEscalera.Image = global::TableroConPanel.Properties.Resources.images;
-            this.pictureBoxEscalera.Location = new System.Drawing.Point(552, 212);
-            this.pictureBoxEscalera.Name = "pictureBoxEscalera";
-            this.pictureBoxEscalera.Size = new System.Drawing.Size(59, 52);
-            this.pictureBoxEscalera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxEscalera.TabIndex = 1;
-            this.pictureBoxEscalera.TabStop = false;
-            this.pictureBoxEscalera.Click += new System.EventHandler(this.PictureBoxEscalera_Click);
             // 
             // nudNumeroCelda
             // 
@@ -89,6 +70,26 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Mover elemento (al cambiar el numericUpDown)";
             // 
+            // pictureBoxEscalera
+            // 
+            this.pictureBoxEscalera.Image = global::TableroConPanel.Properties.Resources.images;
+            this.pictureBoxEscalera.Location = new System.Drawing.Point(552, 212);
+            this.pictureBoxEscalera.Name = "pictureBoxEscalera";
+            this.pictureBoxEscalera.Size = new System.Drawing.Size(59, 52);
+            this.pictureBoxEscalera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxEscalera.TabIndex = 1;
+            this.pictureBoxEscalera.TabStop = false;
+            this.pictureBoxEscalera.Click += new System.EventHandler(this.PictureBoxEscalera_Click);
+            // 
+            // pnlTablero
+            // 
+            this.pnlTablero.BackgroundImage = global::TableroConPanel.Properties.Resources.fondo;
+            this.pnlTablero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlTablero.Location = new System.Drawing.Point(12, 12);
+            this.pnlTablero.Name = "pnlTablero";
+            this.pnlTablero.Size = new System.Drawing.Size(494, 316);
+            this.pnlTablero.TabIndex = 0;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,8 +102,8 @@
             this.Name = "FormPrincipal";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEscalera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumeroCelda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEscalera)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

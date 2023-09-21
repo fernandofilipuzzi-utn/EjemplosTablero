@@ -53,12 +53,12 @@ namespace TableroConPanel
             //pictureBoxEscalera.Location=new Point { Y = altoFila* fila,X = anchoColumna * columna }; 
         }
 
+
+        //hay una forma alternativa , poniendo una imagen de fondo.
+        //el problema que tiene esa forma es que queda limitado
+        //el cambiar el numero de filas y columnas
         private void pnlTablero_Paint(object sender, PaintEventArgs e)
         {
-            //hay una forma alternativa , poniendo una imagen de fondo.
-            //el problema que tiene esa forma es que queda limitado
-            //el cambiar el numero de filas y columnas
-
             int anchoColumna = pnlTablero.Width / Util.Columnas;
             int altoFila = pnlTablero.Height / Util.Renglones;
 
@@ -68,22 +68,16 @@ namespace TableroConPanel
 
             for (int fila = 0; fila < Util.Renglones; fila++)
             {
-                int y0 = altoFila * fila;
-           
-                int x0 = 0;
-                int x1 = pnlTablero.Width;
-                                
-                g.DrawLine(pen, x0, y0, x1, y0);
+                int x1 = pnlTablero.Width; int y0 = altoFila * fila;           
+                int x0 = 0; int y1 = y0;               
+                g.DrawLine(pen, x0, y0, x1, y1);
             }
 
             for (int columna = 0; columna < Util.Columnas; columna++)
             {
-                
-                int x0 = anchoColumna * columna;
-                int y0 = 0;
-                int y1 = pnlTablero.Height;
-
-                g.DrawLine(pen, x0, y0, x0, y1);
+                int x0 = anchoColumna * columna; int y0 = 0; 
+                int x1 = x0; int y1 = pnlTablero.Height;
+                g.DrawLine(pen, x0, y0, x1, y1);
             }
 
             g.DrawRectangle(pen, 0, 0, pnlTablero.Width-2, pnlTablero.Height-2);
