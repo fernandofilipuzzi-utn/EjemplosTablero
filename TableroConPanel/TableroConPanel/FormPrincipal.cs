@@ -59,10 +59,16 @@ namespace TableroConPanel
         //el cambiar el numero de filas y columnas
         private void pnlTablero_Paint(object sender, PaintEventArgs e)
         {
+            
             int anchoColumna = pnlTablero.Width / Util.Columnas;
             int altoFila = pnlTablero.Height / Util.Renglones;
 
             Graphics g = e.Graphics;
+
+            Brush brushFondo = new SolidBrush(Color.LightBlue);
+            g.FillRectangle(brushFondo, 0, 0, pnlTablero.Width - 2, pnlTablero.Height - 2);
+
+
             Brush brush = new SolidBrush(Color.Black);
             Pen pen = new Pen(brush);
 
@@ -80,7 +86,7 @@ namespace TableroConPanel
                 g.DrawLine(pen, x0, y0, x1, y1);
             }
 
-            g.DrawRectangle(pen, 0, 0, pnlTablero.Width-2, pnlTablero.Height-2);
+            g.DrawRectangle(pen, 0, 0, pnlTablero.Width-2, pnlTablero.Height-2); 
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.nudNumeroCelda = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -36,11 +37,12 @@
             this.pnlTablero = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumeroCelda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEscalera)).BeginInit();
+            this.pnlTablero.SuspendLayout();
             this.SuspendLayout();
             // 
             // nudNumeroCelda
             // 
-            this.nudNumeroCelda.Location = new System.Drawing.Point(142, 334);
+            this.nudNumeroCelda.Location = new System.Drawing.Point(67, 334);
             this.nudNumeroCelda.Maximum = new decimal(new int[] {
             15,
             0,
@@ -64,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(287, 341);
+            this.label1.Location = new System.Drawing.Point(233, 331);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(233, 13);
             this.label1.TabIndex = 4;
@@ -72,8 +74,10 @@
             // 
             // pictureBoxEscalera
             // 
-            this.pictureBoxEscalera.Image = global::TableroConPanel.Properties.Resources.images;
-            this.pictureBoxEscalera.Location = new System.Drawing.Point(552, 212);
+            this.pictureBoxEscalera.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxEscalera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxEscalera.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxEscalera.Image")));
+            this.pictureBoxEscalera.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxEscalera.Name = "pictureBoxEscalera";
             this.pictureBoxEscalera.Size = new System.Drawing.Size(59, 52);
             this.pictureBoxEscalera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -83,27 +87,29 @@
             // 
             // pnlTablero
             // 
-            this.pnlTablero.BackgroundImage = global::TableroConPanel.Properties.Resources.fondo;
+            this.pnlTablero.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlTablero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlTablero.Controls.Add(this.pictureBoxEscalera);
             this.pnlTablero.Location = new System.Drawing.Point(12, 12);
             this.pnlTablero.Name = "pnlTablero";
             this.pnlTablero.Size = new System.Drawing.Size(494, 316);
             this.pnlTablero.TabIndex = 0;
+            this.pnlTablero.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTablero_Paint);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 369);
+            this.ClientSize = new System.Drawing.Size(513, 369);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudNumeroCelda);
-            this.Controls.Add(this.pictureBoxEscalera);
             this.Controls.Add(this.pnlTablero);
             this.Name = "FormPrincipal";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudNumeroCelda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEscalera)).EndInit();
+            this.pnlTablero.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
