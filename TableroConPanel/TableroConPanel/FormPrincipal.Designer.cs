@@ -88,13 +88,13 @@
             // pnlTablero
             // 
             this.pnlTablero.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pnlTablero.BackgroundImage = global::TableroConPanel.Properties.Resources.fondo;
             this.pnlTablero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlTablero.Controls.Add(this.pictureBoxEscalera);
             this.pnlTablero.Location = new System.Drawing.Point(12, 12);
             this.pnlTablero.Name = "pnlTablero";
             this.pnlTablero.Size = new System.Drawing.Size(494, 316);
             this.pnlTablero.TabIndex = 0;
-            this.pnlTablero.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTablero_Paint);
             // 
             // FormPrincipal
             // 
